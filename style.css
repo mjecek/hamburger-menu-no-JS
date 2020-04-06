@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: darkgray;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 1);
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.header .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: darkgray;
+}
+
+.header .menu .nav-link {
+    display: block;
+    padding: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.header .menu .nav-link:hover {
+    background-color: lightgrey;
+}
+
+.header .logo {
+    float: left;
+    display: block;
+    font-size: 2rem;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-in-out;
+}
+
+.header .menu-icon {
+    position: relative;
+    padding: 28px 20px;
+    float: right;
+    cursor: pointer;
+}
+
+.header .menu-icon .nav-icon {
+    background-color: black;
+    display: block;
+    width: 20px;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+.header .menu-icon .nav-icon::before {
+    content: "";
+    background-color: black;
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    top: 5px;
+    transition: all .2s ease-out;
+}
+
+.header .menu-icon .nav-icon::after {
+    content: "";
+    background-color: black;
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    top: -5px;
+    transition: all .2s ease-out;
+}
+
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked~.menu {
+    max-height: 240px;
+}
+
+.header .menu-btn:checked~.menu-icon .nav-icon {
+    background-color: transparent;
+}
+
+.header .menu-btn:checked~.menu-icon .nav-icon::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.header .menu-btn:checked~.menu-icon .nav-icon::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+@media (min-width:768px) {
+    .header li {
+        float: left;
+    }
+    .header li .nav-link {
+        padding: 20px 30px;
+    }
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+    .header .menu-icon {
+        display: none;
+    }
+}
